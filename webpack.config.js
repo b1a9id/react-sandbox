@@ -1,9 +1,18 @@
 module.exports = {
 	mode: 'production',
-	entry: __dirname + '/src/index.js',
+	entry: {
+		pOne: './src/index.js',
+		pTwo: './src/components/index.js'
+	},
 	output: {
 		path: __dirname + '/dist',
-		filename: 'bundle.min.js'
+		filename: '[name].bundle.js'
+	},
+	optimization: {
+		splitChunks: {
+			name: 'vendor',
+			chunks: "initial"
+		}
 	},
 	module: {
 		rules: [
