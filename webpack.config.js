@@ -10,8 +10,12 @@ module.exports = {
 	},
 	optimization: {
 		splitChunks: {
-			name: 'vendor',
-			chunks: "initial"
+			cacheGroups: {
+				test: /node_modules/,
+				name: 'vendor',
+				chunks: "initial",
+				enforce: true
+			}
 		}
 	},
 	module: {
