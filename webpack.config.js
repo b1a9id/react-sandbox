@@ -2,7 +2,6 @@ module.exports = {
 	mode: 'production',
 	entry: {
 		pOne: './src/index.js',
-		pTwo: './src/components/index.js'
 	},
 	output: {
 		path: __dirname + '/dist',
@@ -20,6 +19,13 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: "babel-loader"
+			},
+			{
+				test: /\.css/,
+				use: [
+					'style-loader',
+					'css-loader'
+				]
 			}
 		]
 	}
